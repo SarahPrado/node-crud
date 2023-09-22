@@ -1,0 +1,9 @@
+GET http://localhost:3333/produtos
+
+###
+
+POST http://localhost:3333/produto
+
+###
+
+GET http://localhost:3333/produto/0e49d267-bd82-4376-bf3f-af5464de60ff
