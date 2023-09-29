@@ -38,6 +38,25 @@ server.post('/produto', (req, res) => {
     res.status(201).send(produto)
 })
 
+server.put('/produto/:id', (req, res) => {
+    // const idParam = req.params.id abaixo usando a desestruturação
+    const { id } = req.params;
+    console.log(req.body);
+
+    //aqui se criou o req.body para o servidor ler o objeto junto na requisição do routes.http
+    let produtoDB = db.atualizar(id, req.body)
+    return res.status(200).send(produtoDB)
+})
+
+server.delete('/produto/:id', (req, res) => {
+    const { id } = req.params;
+
+    const produto = db.excluir(id)
+
+    return res.status(200).send(produto)
+})
+
+
 server.listen({
     port: PORT,
     host: HOST
